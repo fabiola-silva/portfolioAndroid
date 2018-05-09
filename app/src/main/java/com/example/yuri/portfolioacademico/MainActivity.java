@@ -7,7 +7,8 @@ import android.view.View;
 import android.widget.Button;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{//implementei a classe de click
-    private Button btMonitoria; //cria os botões que vai precisar
+    private Button btMonitoria;//cria os botões que vai precisar
+    private Button btVoluntariado;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -18,7 +19,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         btMonitoria.setOnClickListener(this);//habilita click no botão
 
-    }
+        btVoluntariado.findViewById(R.id.bt_voluntariado);
+
+        btVoluntariado.setOnClickListener(this);
+
+
+        }
 
     private void carregaMonotoria(){
         Intent i = new Intent(MainActivity.this, MonitoriaActivity.class);/** cria um objeto da classe intent,
@@ -26,13 +32,33 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         startActivity(i); //inicializa activity desejada
     }
 
+    private void carregaVoluntariado(){
+        Intent i = new Intent(MainActivity.this, VoluntariadoActivity.class);
+
+        startActivity(i);
+    }
+
+
     @Override
     public void onClick(View v) {
         switch (v.getId()){//verifica o id do botão que foi clicado
             case R.id.bt_monitoria://se clicou em monitoria
                 carregaMonotoria();
                 break;
+
+
+            case R.id.bt_voluntariado:
+                carregaVoluntariado();
+                break;
             default:
         }
     }
+
+
+
+
+
+
+
+
 }

@@ -16,8 +16,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".VoluntarioActivity" />
-        <activity android:name=".MonitoriaActivity"></activity>
+        <activity android:name=".MonitoriaActivity" />
+        <activity android:name=".VoluntariadoActivity" />
     </application>
 
 </manifest>
