@@ -2,5 +2,7 @@
     <string name="app_name">Portfolio Academico</string>
     <string name="titulo_monitoria">Monitoria</string>
     <string name="titulo_voluntariado">Voluntariado</string>
-
+    <string name="titulo_trabalhos">Trabalhos</string>
+    <string name="titulo_projetos">Projetos</string>
+    <string name="titulo_atividades_faculdade">Atividades_Faculdade</string>
 </resources>

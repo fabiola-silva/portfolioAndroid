@@ -18,6 +18,9 @@
         </activity>
         <activity android:name=".MonitoriaActivity" />
         <activity android:name=".VoluntariadoActivity" />
+        <activity android:name=".TrabalhosActivity" />
+        <activity android:name=".ProjetosActivity" />
+        <activity android:name=".Atividades_FaculdadeActivity"></activity>
     </application>
 
 </manifest>
