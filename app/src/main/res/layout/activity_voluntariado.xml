@@ -5,8 +5,9 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MonitoriaActivity">
-    <!-- Precisa criar a Toolbar e definir um ID para ela-->
+    tools:context=".VoluntariadoActivity">
+
+
     <android.support.v7.widget.Toolbar
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
