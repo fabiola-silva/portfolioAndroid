@@ -7,8 +7,7 @@ import android.view.View;
 import android.widget.Button;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{//implementei a classe de click
-    private Button btMonitoria;//cria os botões que vai precisar
-    private Button btVoluntariado;
+    private Button btMonitoria,btVoluntariado;//cria os botões que vai precisar
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -16,10 +15,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         setContentView(R.layout.activity_main);
 
         btMonitoria = findViewById(R.id.bt_monitoria);//faz o link do java com o xml, para o java saber a qual elemnto você está referenciando
+        btVoluntariado = findViewById(R.id.bt_voluntariado);
+        //o erro era que você estava separando por ponto, o certo é por igual
+        //btVoluntariado.findViewById(R.id.bt_voluntariado);
 
         btMonitoria.setOnClickListener(this);//habilita click no botão
 
-        btVoluntariado.findViewById(R.id.bt_voluntariado);
+
 
         btVoluntariado.setOnClickListener(this);
 
@@ -45,8 +47,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.bt_monitoria://se clicou em monitoria
                 carregaMonotoria();
                 break;
-
-
             case R.id.bt_voluntariado:
                 carregaVoluntariado();
                 break;
