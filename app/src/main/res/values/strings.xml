@@ -5,4 +5,21 @@
     <string name="titulo_trabalhos">Trabalhos</string>
     <string name="titulo_projetos">Projetos</string>
     <string name="titulo_atividades_faculdade">Atividades_Faculdade</string>
+    <string name="email">E-mail</string>
+    <string name="senha">Senha</string>
+    <string name="entrar">Entrar</string>
+    <string name="preencha_tudo">Preencha todos os campos</string>
+    <string name="senha_incorreta">Senha incorreta</string>
+    <string name="sem_conexao">Sem conexão</string>
+    <string name="sair">Sair</string>
+    <string name="processando">Processando</string>
+    <string name="matricula">Matrícula</string>
+
+    <!-- URLS -->
+    <!-- LOCAL -->
+    <!--<string name="url_base">http://192.168.98.168/portfolio-api/api</string>-->
+    <!-- ONLINE -->
+    <string name="url_base">http://lab312-icetufam.com.br/testes/portfolio-api/api</string>
+
+    <string name="url_login">/usuario/loginapp.php</string>
 </resources>
