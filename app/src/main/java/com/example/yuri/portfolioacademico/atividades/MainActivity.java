@@ -1,4 +1,4 @@
-package com.example.yuri.portfolioacademico;
+package com.example.yuri.portfolioacademico.atividades;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -9,6 +9,8 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+
+import com.example.yuri.portfolioacademico.R;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{//implementei a classe de click
     private Button btMonitoria,btVoluntariado,btTrabalhos,btProjetos,btAtividades_Faculdade;//cria os botões que vai precisar
@@ -54,7 +56,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
 
     private void carregaMonotoria(){
-        Intent i = new Intent(MainActivity.this, MonitoriaActivity.class);/** cria um objeto da classe intent,
+        Intent i = new Intent(MainActivity.this, Monitoria2Activity.class);/** cria um objeto da classe intent,
          o primeiro parametro é a activity que você está, e o segundo é qual activity você quer carregar*/
         startActivity(i); //inicializa activity desejada
     }

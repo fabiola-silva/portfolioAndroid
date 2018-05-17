@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.yuri.portfolioacademico">
-    <uses-permission android:name="android.permission.INTERNET"/>
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -10,20 +12,24 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity">
+        <activity android:name=".atividades.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".MonitoriaActivity" />
-        <activity android:name=".VoluntariadoActivity" />
-        <activity android:name=".TrabalhosActivity" />
-        <activity android:name=".ProjetosActivity" />
-        <activity android:name=".Atividades_FaculdadeActivity" />
-        <activity android:name=".loginActivity">
-
-        </activity>
+        <activity android:name=".atividades.MonitoriaActivity" />
+        <activity android:name=".atividades.VoluntariadoActivity" />
+        <activity android:name=".atividades.TrabalhosActivity" />
+        <activity android:name=".atividades.ProjetosActivity" />
+        <activity android:name=".atividades.Atividades_FaculdadeActivity" />
+        <activity android:name=".atividades.loginActivity" />
+        <activity
+            android:name=".atividades.Monitoria2Activity"
+            android:label="@string/title_activity_monitoria2"
+            android:theme="@style/AppTheme" />
+        <activity android:name=".atividades.ViewMonitoria"></activity>
     </application>
 
 </manifest>

@@ -1,4 +1,4 @@
-package com.example.yuri.portfolioacademico;
+package com.example.yuri.portfolioacademico.atividades;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -17,12 +17,12 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.example.yuri.portfolioacademico.R;
 import com.example.yuri.portfolioacademico.utils.Conexao;
 
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.lang.reflect.Method;
 import java.util.HashMap;
 import java.util.Map;
 

@@ -1,10 +1,12 @@
-package com.example.yuri.portfolioacademico;
+package com.example.yuri.portfolioacademico.atividades;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.support.v7.widget.Toolbar;
+
+import com.example.yuri.portfolioacademico.R;
 
 public class ProjetosActivity extends AppCompatActivity {
 

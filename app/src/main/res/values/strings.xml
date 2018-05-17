@@ -14,12 +14,26 @@
     <string name="sair">Sair</string>
     <string name="processando">Processando</string>
     <string name="matricula">Matrícula</string>
+    <string name="vazio">Nada para mostrar</string>
 
     <!-- URLS -->
     <!-- LOCAL -->
     <!--<string name="url_base">http://192.168.98.168/portfolio-api/api</string>-->
     <!-- ONLINE -->
     <string name="url_base">http://lab312-icetufam.com.br/testes/portfolio-api/api</string>
-
     <string name="url_login">/usuario/loginapp.php</string>
+    <string name="url_listar_monitoria">/monitoria/listar.php</string>
+    <string name="url_cadastrar_monitoria">/monitoria/inserir.php</string>
+    <string name="url_alterar_monitoria">/monitoria/alterar.php</string>
+    <string name="url_deletar_monitoria">/monitoria/deletar.php</string>
+
+    <string name="title_activity_monitoria2">Monitoria2Activity</string>
+    <string name="descricao">Descrição</string>
+    <string name="feedback">Feedback</string>
+    <string name="cadastrar">Cadastrar</string>
+    <string name="alterar">Alterar</string>
+    <string name="conteudo">Conteúdo</string>
+    <string name="deseja_deletar">Deseja realmente excluir?</string>
+    <string name="sim">Sim</string>
+    <string name="nao">Não</string>
 </resources>
