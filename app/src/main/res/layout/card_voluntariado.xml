@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="100dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_marginTop="6dp"
+    android:layout_marginLeft="6dp"
+    android:layout_marginRight="6dp"
+    app:cardCornerRadius="3dp">
+    <LinearLayout
+        android:layout_margin="6dp"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:textSize="14sp"
+                android:textColor="@color/black"
+                android:id="@+id/tv_descricao"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:text="Descrição de voluntariado"
+                android:ellipsize="end"
+                android:maxLines="2"/>
+            <ImageView
+                android:id="@+id/iv_editar"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                app:srcCompat="@drawable/ic_editar"/>
+            <ImageView
+                android:layout_marginLeft="6dp"
+                android:id="@+id/iv_deletar"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                app:srcCompat="@drawable/ic_deletar"/>
+        </LinearLayout>
+
+
+        <TextView
+            android:id="@+id/tv_feedback"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:text="Texto descrição do FeedBack"
+            android:ellipsize="end"
+            android:maxLines="3"/>
+        <TextView
+            android:textSize="12sp"
+            android:id="@+id/tv_data_cadastro"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="12/12/2012"
+            />
+
+
+    </LinearLayout>
+</android.support.v7.widget.CardView>

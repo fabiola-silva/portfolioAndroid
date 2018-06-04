@@ -28,7 +28,13 @@
     <string name="url_alterar_monitoria">/monitoria/alterar.php</string>
     <string name="url_deletar_monitoria">/monitoria/deletar.php</string>
 
+    <string name="url_listar_voluntariado">/voluntariado/listar.php</string>
+    <string name="url_cadastrar_voluntariado">/voluntariado/inserir.php</string>
+    <string name="url_alterar_voluntariado">/voluntariado/alterar.php</string>
+    <string name="url_deletar_voluntariado">/voluntariado/deletar.php</string>
+
     <string name="title_activity_monitoria2">Monitoria2Activity</string>
+    <string name="title_activity_voluntariado2">Voluntariado2Activity</string>
     <string name="descricao">Descrição</string>
     <string name="feedback">Feedback</string>
     <string name="cadastrar">Cadastrar</string>

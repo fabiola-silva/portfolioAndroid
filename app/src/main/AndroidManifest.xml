@@ -30,6 +30,12 @@
             android:label="@string/title_activity_monitoria2"
             android:theme="@style/AppTheme" />
         <activity android:name=".atividades.ViewMonitoria"></activity>
+        <activity
+            android:name=".atividades.Voluntariado2Activity"
+            android:label="@string/title_activity_voluntariado2"
+            android:theme="@style/AppTheme" />
+        <activity android:name=".atividades.ViewVoluntariado"></activity>
+
     </application>
 
 </manifest>
