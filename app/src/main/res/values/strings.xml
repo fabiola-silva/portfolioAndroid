@@ -18,14 +18,15 @@
 
     <!-- URLS -->
     <!-- LOCAL -->
-    <!--<string name="url_base">http://192.168.98.168/portfolio-api/api</string>-->
+    <string name="url_base">http://192.168.1.101/portfolio-api/api</string>
     <!-- ONLINE -->
-    <string name="url_base">http://lab312-icetufam.com.br/testes/portfolio-api/api</string>
+    <!--<string name="url_base">http://lab312-icetufam.com.br/testes/portfolio-api/api</string>-->
     <string name="url_login">/usuario/loginapp.php</string>
     <string name="url_listar_monitoria">/monitoria/listar.php</string>
     <string name="url_cadastrar_monitoria">/monitoria/inserir.php</string>
     <string name="url_alterar_monitoria">/monitoria/alterar.php</string>
     <string name="url_deletar_monitoria">/monitoria/deletar.php</string>
+    <string name="utl_enviar_projeto">/projeto/salvardoc.php</string>
 
     <string name="title_activity_monitoria2">Monitoria2Activity</string>
     <string name="descricao">Descrição</string>
@@ -36,4 +37,5 @@
     <string name="deseja_deletar">Deseja realmente excluir?</string>
     <string name="sim">Sim</string>
     <string name="nao">Não</string>
+    <string name="enviar_doc">Enviar documento</string>
 </resources>

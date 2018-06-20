@@ -13,4 +13,12 @@
         android:layout_height="?android:attr/actionBarSize"
         android:background="@color/colorPrimary"/>
 
+    <Button
+        android:layout_marginTop="20dp"
+        android:id="@+id/bt_enviar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/enviar_doc"
+        />
+
 </LinearLayout>
