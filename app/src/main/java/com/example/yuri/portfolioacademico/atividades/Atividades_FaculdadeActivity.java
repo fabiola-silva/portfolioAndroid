@@ -135,9 +135,7 @@ public class Atividades_FaculdadeActivity extends AppCompatActivity {
                         }else{
                             //Toast.makeText(Atividades_FaculdadeActivity.this, jo.getString("mensagem"), Toast.LENGTH_SHORT).show();
                         }
-
-
-
+                        
                     } catch (IOException e) {
                         e.printStackTrace();
                         Log.i("TAG",e.getMessage());
