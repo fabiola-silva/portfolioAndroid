@@ -41,7 +41,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class Voluntariado2Activity extends AppCompatActivity implements RecyclerOnClick{
+public class Oficina2Activity extends AppCompatActivity implements RecyclerOnClick{
     private RecyclerView rvVoluntariado;
     private VoluntariadoAdaptador voluntariadoAdaptador;
     private List<Voluntariado> lista = new ArrayList<>();
@@ -57,7 +57,7 @@ public class Voluntariado2Activity extends AppCompatActivity implements Recycler
         sp = getSharedPreferences("dados_usuario",MODE_PRIVATE);
 
         Toolbar toolbar = findViewById(R.id.toolbar);
-        toolbar.setTitle(R.string.titulo_voluntariado);
+        toolbar.setTitle(R.string.titulo_oficina);
 
         setSupportActionBar(toolbar);
 
@@ -76,7 +76,7 @@ public class Voluntariado2Activity extends AppCompatActivity implements Recycler
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(Voluntariado2Activity.this,ViewVoluntariado.class);
+                Intent intent = new Intent(Oficina2Activity.this,ViewVoluntariado.class);
                 intent.putExtra("tipo","cadastrar");
                 startActivity(intent);
             }
@@ -134,7 +134,7 @@ public class Voluntariado2Activity extends AppCompatActivity implements Recycler
                                 }
                             } catch (JSONException e) {
                                 e.printStackTrace();
-                                Toast.makeText(Voluntariado2Activity.this, e.getMessage(), Toast.LENGTH_SHORT).show();
+                                Toast.makeText(Oficina2Activity.this, e.getMessage(), Toast.LENGTH_SHORT).show();
                             }
                         }
                     },
@@ -142,7 +142,7 @@ public class Voluntariado2Activity extends AppCompatActivity implements Recycler
                         @Override
                         public void onErrorResponse(VolleyError error) {
                             srRecarregar.setRefreshing(false);
-                            Toast.makeText(Voluntariado2Activity.this, error.getMessage(), Toast.LENGTH_SHORT).show();
+                            Toast.makeText(Oficina2Activity.this, error.getMessage(), Toast.LENGTH_SHORT).show();
                             rvVoluntariado.setVisibility(View.VISIBLE);
                             llVazio.setVisibility(View.GONE);
                             llSemInternet.setVisibility(View.GONE);
@@ -196,7 +196,7 @@ public class Voluntariado2Activity extends AppCompatActivity implements Recycler
     public void onClick(View v, int position) {
         Voluntariado voluntariado = lista.get(position);
         int id = v.getId();
-        Intent intent = new Intent(Voluntariado2Activity.this, ViewVoluntariado.class);
+        Intent intent = new Intent(Oficina2Activity.this, ViewVoluntariado.class);
         switch (id){
             case R.id.iv_editar:
                 intent.putExtra("tipo","alterar");
@@ -253,15 +253,15 @@ public class Voluntariado2Activity extends AppCompatActivity implements Recycler
                             try {
                                 JSONObject jo = new JSONObject(response);
                                 if(jo.getString("status").equals("sucesso")){
-                                    Toast.makeText(Voluntariado2Activity.this, jo.getString("mensagem"), Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(Oficina2Activity.this, jo.getString("mensagem"), Toast.LENGTH_SHORT).show();
                                     listarVoluntariado();
-
+                                   //monitoriaAdaptador.notifyDataSetChanged();//atualiza lista
                                 }else{
-                                    Toast.makeText(Voluntariado2Activity.this, jo.getString("mensagem"), Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(Oficina2Activity.this, jo.getString("mensagem"), Toast.LENGTH_SHORT).show();
                                 }
                             } catch (JSONException e) {
                                 e.printStackTrace();
-                                Toast.makeText(Voluntariado2Activity.this, e.getMessage(), Toast.LENGTH_SHORT).show();
+                                Toast.makeText(Oficina2Activity.this, e.getMessage(), Toast.LENGTH_SHORT).show();
                             }
                         }
                     },
@@ -269,7 +269,7 @@ public class Voluntariado2Activity extends AppCompatActivity implements Recycler
                         @Override
                         public void onErrorResponse(VolleyError error) {
                             conexao.progressDialog.dismiss();
-                            Toast.makeText(Voluntariado2Activity.this, error.getMessage(), Toast.LENGTH_SHORT).show();
+                            Toast.makeText(Oficina2Activity.this, error.getMessage(), Toast.LENGTH_SHORT).show();
                         }
                     }){
                 @Override
