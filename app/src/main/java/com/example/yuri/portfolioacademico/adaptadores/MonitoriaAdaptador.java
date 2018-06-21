@@ -34,22 +34,22 @@ public class MonitoriaAdaptador extends RecyclerView.Adapter<MonitoriaAdaptador.
     @NonNull
     @Override
     public MonitoriaViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(context).inflate(R.layout.card_monitoria,parent,false);//infla o layout do card
-        return new MonitoriaViewHolder(view); //envia o layout inflado para a classe MonitoriaViewHolder
+        View view = LayoutInflater.from(context).inflate(R.layout.card_monitoria,parent,false);
+        return new MonitoriaViewHolder(view);
     }
 
     @Override
     public void onBindViewHolder(@NonNull MonitoriaViewHolder holder, int position) {
-        Monitoria monitoria = lista.get(position);//pega cada objeto da lista
+        Monitoria monitoria = lista.get(position);
 
-        holder.tvDescricao.setText(monitoria.getDescricao()); //seta os dados em cada TextView
+        holder.tvDescricao.setText(monitoria.getDescricao());
         holder.tvFeedback.setText(monitoria.getFeedback());
         holder.tvDataCadastro.setText(monitoria.getDataCadastro());
     }
 
     @Override
     public int getItemCount() {
-        return lista.size();//retorna tamanho da lista
+        return lista.size();
     }
 
     public class MonitoriaViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
@@ -58,7 +58,7 @@ public class MonitoriaAdaptador extends RecyclerView.Adapter<MonitoriaAdaptador.
 
         public MonitoriaViewHolder(View itemView) {
             super(itemView);
-            //lincando com os botões imagem do card_monitoria
+
             ivEditar = itemView.findViewById(R.id.iv_editar);
             ivDeletar = itemView.findViewById(R.id.iv_deletar);
 
@@ -66,11 +66,11 @@ public class MonitoriaAdaptador extends RecyclerView.Adapter<MonitoriaAdaptador.
             tvFeedback = itemView.findViewById(R.id.tv_feedback);
             tvDataCadastro = itemView.findViewById(R.id.tv_data_cadastro);
 
-            itemView.setOnClickListener(this);//ativa click no card indeiro
+            itemView.setOnClickListener(this);
 
-            ivEditar.setOnClickListener(this);//ativa click no botão de editar
+            ivEditar.setOnClickListener(this);
 
-            ivDeletar.setOnClickListener(this);//ativa click no botão excluir
+            ivDeletar.setOnClickListener(this);
 
         }
 

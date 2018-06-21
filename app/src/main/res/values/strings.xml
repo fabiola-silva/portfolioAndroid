@@ -22,9 +22,7 @@
 
     <!-- URLS -->
     <!-- LOCAL -->
-    <!--<string name="url_base">http://192.168.98.168/portfolio-api/api</string>-->
-    <!-- ONLINE -->
-    <!--string name="url_base">http://lab312-icetufam.com.br/testes/portfolio-api/api</string-->
+
     <string name="url_base">http://192.168.0.16/portfolio-api/api</string>
     <string name="url_login">/usuario/loginapp.php</string>
     <string name="url_cadastrar_usuario">/usuario.inserir.php</string>

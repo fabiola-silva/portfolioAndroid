@@ -12,8 +12,8 @@ import android.widget.Button;
 
 import com.example.yuri.portfolioacademico.R;
 
-public class MainActivity extends AppCompatActivity implements View.OnClickListener{//implementei a classe de click
-    private Button btMonitoria,btVoluntariado,btTrabalhos,btProjetos,btAtividades_Faculdade;//cria os botões que vai precisar
+public class MainActivity extends AppCompatActivity implements View.OnClickListener{
+    private Button btMonitoria,btVoluntariado,btTrabalhos,btProjetos,btAtividades_Faculdade;
     private SharedPreferences sp;
 
     @Override
@@ -21,28 +21,26 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Toolbar toolbar = findViewById(R.id.toolbar); //link com a toolbar no xml
+        Toolbar toolbar = findViewById(R.id.toolbar);
 
-        setSupportActionBar(toolbar);//setando suporte de action bar
+        setSupportActionBar(toolbar);
 
-        sp = getSharedPreferences("dados_usuario",MODE_PRIVATE);//salva dados locais do usuário
+        sp = getSharedPreferences("dados_usuario",MODE_PRIVATE);
 
-        if(!sp.getBoolean("logado",false)){//se não estiver logado
+        if(!sp.getBoolean("logado",false)){
             Intent intent = new Intent(MainActivity.this,loginActivity.class);
-            startActivity(intent); //carrega tela de login
-            finish(); //fecha essa tela
+            startActivity(intent);
+            finish();
         }
 
-        btMonitoria = findViewById(R.id.bt_monitoria);//faz o link do java com o xml, para o java saber a qual elemnto você está referenciando
+        btMonitoria = findViewById(R.id.bt_monitoria);
         btVoluntariado = findViewById(R.id.bt_voluntariado);
         btTrabalhos = findViewById(R.id.bt_trabalhos);
         btProjetos = findViewById(R.id.bt_projetos);
         btAtividades_Faculdade = findViewById(R.id.bt_atividades_faculdade);
 
-        //o erro era que você estava separando por ponto, o certo é por igual
-        //btVoluntariado.findViewById(R.id.bt_voluntariado);
 
-        btMonitoria.setOnClickListener(this);//habilita click no botão
+        btMonitoria.setOnClickListener(this);
 
         btVoluntariado.setOnClickListener(this);
 
@@ -56,9 +54,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
 
     private void carregaMonotoria(){
-        Intent i = new Intent(MainActivity.this, Monitoria2Activity.class);/** cria um objeto da classe intent,
-         o primeiro parametro é a activity que você está, e o segundo é qual activity você quer carregar*/
-        startActivity(i); //inicializa activity desejada
+        Intent i = new Intent(MainActivity.this, Monitoria2Activity.class);
+        startActivity(i);
     }
 
     private void carregaVoluntariado(){
@@ -88,8 +85,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     @Override
     public void onClick(View v) {
-        switch (v.getId()){//verifica o id do botão que foi clicado
-            case R.id.bt_monitoria://se clicou em monitoria
+        switch (v.getId()){
+            case R.id.bt_monitoria:
                 carregaMonotoria();
                 break;
             case R.id.bt_voluntariado:
@@ -110,7 +107,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
 
     @Override
-    public boolean onCreateOptionsMenu(Menu menu){//infla o menu dessa tela
+    public boolean onCreateOptionsMenu(Menu menu){
         getMenuInflater().inflate(R.menu.menu_main,menu);
         return true;
     }
@@ -118,16 +115,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     public boolean onOptionsItemSelected(MenuItem item){
         int id = item.getItemId();
-        if(id == R.id.menu_sair){ //verifica se clicou na seta de voltar
-            SharedPreferences.Editor editor = sp.edit();//prepara para editar o arquivos de dados locais do usuario
+        if(id == R.id.menu_sair){
+            SharedPreferences.Editor editor = sp.edit();
 
-            editor.clear(); //limpa dados dos usuário fazendo que ele deixe de estar logado
+            editor.clear();
             editor.apply();
-            editor.clear();//salva as alterações
+            editor.clear();
 
             Intent intent = new Intent(MainActivity.this,loginActivity.class);
-            startActivity(intent); //carrega tela de login
-            finish(); //fecha essa tela
+            startActivity(intent);
+            finish();
         }
         return true;
     }

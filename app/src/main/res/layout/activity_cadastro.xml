@@ -67,7 +67,7 @@
         android:id="@+id/bt_cadastro"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="400dp"
+        android:layout_marginTop="190dp"
         android:onClick="Registar"
         android:text="Cadastra usuário"
         android:textColor="@color/black"

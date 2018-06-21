@@ -54,32 +54,32 @@ public class ViewMonitoria extends AppCompatActivity {
         llConteudoVisivel = findViewById(R.id.ll_conteudo_visivel);
 
         conexao = new Conexao(this);
-        sp = getSharedPreferences("dados_usuario",MODE_PRIVATE);//salva dados locais do usuário
+        sp = getSharedPreferences("dados_usuario",MODE_PRIVATE);
 
 
         bundle = getIntent().getExtras();
 
-        if(bundle.getString("tipo").equals("cadastrar")){//se vier do botão cadastrar
-            toolbar.setTitle(R.string.cadastrar);//coloca título da toolbar
+        if(bundle.getString("tipo").equals("cadastrar")){
+            toolbar.setTitle(R.string.cadastrar);
             llConteudoEditavel.setVisibility(View.VISIBLE);
         }else{
-            if(bundle.getString("tipo").equals("alterar")){//se vier do votão alterar
-                toolbar.setTitle(R.string.alterar); //coloca título da toolbar
+            if(bundle.getString("tipo").equals("alterar")){
+                toolbar.setTitle(R.string.alterar);
                 llConteudoEditavel.setVisibility(View.VISIBLE);
-                etDescricao.setText(bundle.getString("descricao"));//seta descrição no edittext
-                etFeedback.setText(bundle.getString("feedback"));//seta feedback no edittext
-                btEditavel.setText(R.string.alterar);//muda o nome do botão para alterar
-            }else{//se vier do click ver
-                toolbar.setTitle(R.string.conteudo);//coloca título da toolbar
+                etDescricao.setText(bundle.getString("descricao"));
+                etFeedback.setText(bundle.getString("feedback"));
+                btEditavel.setText(R.string.alterar);
+            }else{
+                toolbar.setTitle(R.string.conteudo);
                 llConteudoVisivel.setVisibility(View.VISIBLE);
                 tvDescricao.setText(bundle.getString("descricao"));
                 tvFeedback.setText(bundle.getString("feedback"));
             }
         }
 
-        setSupportActionBar(toolbar);//setando suporte de action bar
+        setSupportActionBar(toolbar);
 
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true); //ativando a seta de voltar na toolbar
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         btEditavel.setOnClickListener(new View.OnClickListener() {//click do botão editavel
             @Override
@@ -87,10 +87,10 @@ public class ViewMonitoria extends AppCompatActivity {
                 String descricao = etDescricao.getText().toString();
                 String feedback = etFeedback.getText().toString();
 
-                if(!descricao.trim().isEmpty() && !feedback.trim().isEmpty()){//verifica sem nenhum dos campos estão vazio
-                    if(bundle.getString("tipo").equals("cadastrar")){//se for para cadastrar
+                if(!descricao.trim().isEmpty() && !feedback.trim().isEmpty()){
+                    if(bundle.getString("tipo").equals("cadastrar")){
                         cadastar(descricao, feedback, sp.getString("id_usuario","0"));
-                    }else{//se for para editar
+                    }else{
                         alterar(descricao, feedback, sp.getString("id_usuario","0"),bundle.getString("id_monitoria"));
                     }
                 }else{
@@ -103,7 +103,7 @@ public class ViewMonitoria extends AppCompatActivity {
 
 
     private void cadastar(final String descricao, final String feedback, final String idUsuario){
-        if(conexao.estaConectado()){//se tiver internet
+        if(conexao.estaConectado()){
             conexao.dialogoCarregamento(this,getString(R.string.processando));
             RequestQueue requestQueue = Volley.newRequestQueue(this);
             StringRequest stringRequest = new StringRequest(Request.Method.POST, getString(R.string.url_base) + getString(R.string.url_cadastrar_monitoria),
@@ -113,7 +113,7 @@ public class ViewMonitoria extends AppCompatActivity {
                             conexao.progressDialog.dismiss();
                             try {
                                 JSONObject jo = new JSONObject(response);
-                                if(jo.getString("status").equals("sucesso")){//se encontrar intens
+                                if(jo.getString("status").equals("sucesso")){
                                     Toast.makeText(ViewMonitoria.this, jo.getString("mensagem"), Toast.LENGTH_SHORT).show();
                                     finish();
                                 }else{//se erro
@@ -129,7 +129,7 @@ public class ViewMonitoria extends AppCompatActivity {
                         @Override
                         public void onErrorResponse(VolleyError error) {
                             conexao.progressDialog.dismiss();
-                            Toast.makeText(ViewMonitoria.this, error.getMessage(), Toast.LENGTH_SHORT).show();//mostra mensagem de erro
+                            Toast.makeText(ViewMonitoria.this, error.getMessage(), Toast.LENGTH_SHORT).show();
                         }
                     }){
                 @Override
@@ -143,13 +143,13 @@ public class ViewMonitoria extends AppCompatActivity {
             };
 
             requestQueue.add(stringRequest);
-        }else{ //se não tiver internet
+        }else{
             Toast.makeText(this, R.string.sem_conexao, Toast.LENGTH_SHORT).show();
         }
     }
 
     private void alterar(final String descricao, final String feedback, final String idUsuario, final String idMonitoria){
-        if(conexao.estaConectado()){//se tiver internet
+        if(conexao.estaConectado()){
             conexao.dialogoCarregamento(this,getString(R.string.processando));
             RequestQueue requestQueue = Volley.newRequestQueue(this);
             StringRequest stringRequest = new StringRequest(Request.Method.POST, getString(R.string.url_base) + getString(R.string.url_alterar_monitoria),
@@ -159,7 +159,7 @@ public class ViewMonitoria extends AppCompatActivity {
                             conexao.progressDialog.dismiss();
                             try {
                                 JSONObject jo = new JSONObject(response);
-                                if(jo.getString("status").equals("sucesso")){//se encontrar intens
+                                if(jo.getString("status").equals("sucesso")){
                                     Toast.makeText(ViewMonitoria.this, jo.getString("mensagem"), Toast.LENGTH_SHORT).show();
                                     finish();
                                 }else{//se erro
@@ -175,7 +175,7 @@ public class ViewMonitoria extends AppCompatActivity {
                         @Override
                         public void onErrorResponse(VolleyError error) {
                             conexao.progressDialog.dismiss();
-                            Toast.makeText(ViewMonitoria.this, error.getMessage(), Toast.LENGTH_SHORT).show();//mostra mensagem de erro
+                            Toast.makeText(ViewMonitoria.this, error.getMessage(), Toast.LENGTH_SHORT).show();
                         }
                     }){
                 @Override
@@ -190,7 +190,7 @@ public class ViewMonitoria extends AppCompatActivity {
             };
 
             requestQueue.add(stringRequest);
-        }else{ //se não tiver internet
+        }else{
             Toast.makeText(this, R.string.sem_conexao, Toast.LENGTH_SHORT).show();
         }
     }
@@ -204,7 +204,7 @@ public class ViewMonitoria extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item){
         int id = item.getItemId();
-        if(id == android.R.id.home){ //verifica se clicou na seta de voltar
+        if(id == android.R.id.home){
             finish();
         }
         return true;
