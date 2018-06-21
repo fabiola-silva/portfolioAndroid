@@ -22,9 +22,14 @@
 
     <!-- URLS -->
     <!-- LOCAL -->
+<<<<<<< HEAD
     <string name="url_base">http://192.168.1.100/portfolio-api/api</string>
     <!-- ONLINE -->
 
+=======
+
+    <string name="url_base">http://192.168.0.16/portfolio-api/api</string>
+>>>>>>> fabiolaPortfolio
     <string name="url_login">/usuario/loginapp.php</string>
     <string name="url_cadastrar_usuario">/usuario.inserir.php</string>
     <string name="url_alterar_usuario">/usuario.alterar.php</string>

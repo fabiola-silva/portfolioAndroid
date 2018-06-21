@@ -54,14 +54,14 @@ public class Monitoria2Activity extends AppCompatActivity implements RecyclerOnC
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_monitoria2);
-        sp = getSharedPreferences("dados_usuario",MODE_PRIVATE);//salva dados locais do usuário
+        sp = getSharedPreferences("dados_usuario",MODE_PRIVATE);
 
-        Toolbar toolbar = findViewById(R.id.toolbar); //link com a toolbar no xml
-        toolbar.setTitle(R.string.titulo_monitoria); //coloca o título na toolbar, é no arquivo string que se deve colocar todos os texto de uma aplicação
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        toolbar.setTitle(R.string.titulo_monitoria);
 
-        setSupportActionBar(toolbar);//setando suporte de action bar
+        setSupportActionBar(toolbar);
 
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true); //ativando a seta de voltar na toolbar
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         rvMonitoria = findViewById(R.id.rv_monitoria);
         srRecarregar = findViewById(R.id.sr_recarregar);
@@ -70,7 +70,6 @@ public class Monitoria2Activity extends AppCompatActivity implements RecyclerOnC
 
         conexao = new Conexao(this);
 
-        //listarMonitoria();//chama método que busca dados
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -93,8 +92,8 @@ public class Monitoria2Activity extends AppCompatActivity implements RecyclerOnC
     }
 
     private void listarMonitoria(){
-        srRecarregar.setRefreshing(!srRecarregar.isRefreshing());//se não estiver iniado, inicializa
-        if(conexao.estaConectado()){//se tiver internet
+        srRecarregar.setRefreshing(!srRecarregar.isRefreshing());
+        if(conexao.estaConectado()){
 
             RequestQueue requestQueue = Volley.newRequestQueue(this);
             StringRequest stringRequest = new StringRequest(Request.Method.POST, getString(R.string.url_base) + getString(R.string.url_listar_monitoria),
@@ -104,32 +103,32 @@ public class Monitoria2Activity extends AppCompatActivity implements RecyclerOnC
                             srRecarregar.setRefreshing(false);
                             try {
                                 JSONObject jo = new JSONObject(response);
-                                if(jo.getString("status").equals("sucesso")){//se encontrar intens
-                                    lista.clear();//limpa a lista antiga
+                                if(jo.getString("status").equals("sucesso")){
+                                    lista.clear();
                                     JSONArray dados = jo.getJSONArray("dados");
-                                    for(int i = 0; i < dados.length(); i++){//percerre a lista de dados
+                                    for(int i = 0; i < dados.length(); i++){
                                         Monitoria monitoria = new Monitoria();
                                         JSONObject joAux = dados.getJSONObject(i);
                                         monitoria.setId(joAux.getString("id"));
                                         monitoria.setDescricao(joAux.getString("descricao"));
                                         monitoria.setFeedback(joAux.getString("feedback"));
 
-                                        ConverteData cd = new ConverteData(joAux.getString("data_cadastro"));//chama função para converter data
+                                        ConverteData cd = new ConverteData(joAux.getString("data_cadastro"));
                                         String data = cd.converter();
                                         monitoria.setDataCadastro(data);
 
                                         lista.add(monitoria);
                                     }
 
-                                    rvMonitoria.setVisibility(View.VISIBLE);//mostra a lista
+                                    rvMonitoria.setVisibility(View.VISIBLE);
                                     llVazio.setVisibility(View.GONE);
                                     llSemInternet.setVisibility(View.GONE);
 
-                                    preencheLista();//preenche a lsita
+                                    preencheLista();
 
                                 }else{
                                     rvMonitoria.setVisibility(View.GONE);
-                                    llVazio.setVisibility(View.VISIBLE);//mostra a mensagem de vazio
+                                    llVazio.setVisibility(View.VISIBLE);
                                     llSemInternet.setVisibility(View.GONE);
                                 }
                             } catch (JSONException e) {
@@ -142,8 +141,8 @@ public class Monitoria2Activity extends AppCompatActivity implements RecyclerOnC
                         @Override
                         public void onErrorResponse(VolleyError error) {
                             srRecarregar.setRefreshing(false);
-                            Toast.makeText(Monitoria2Activity.this, error.getMessage(), Toast.LENGTH_SHORT).show();//mostra mensagem de erro
-                            rvMonitoria.setVisibility(View.VISIBLE);//mostra lista
+                            Toast.makeText(Monitoria2Activity.this, error.getMessage(), Toast.LENGTH_SHORT).show();
+                            rvMonitoria.setVisibility(View.VISIBLE);
                             llVazio.setVisibility(View.GONE);
                             llSemInternet.setVisibility(View.GONE);
                         }
@@ -157,17 +156,17 @@ public class Monitoria2Activity extends AppCompatActivity implements RecyclerOnC
             };
 
             requestQueue.add(stringRequest);
-        }else{ //se não tiver internet
-            srRecarregar.setRefreshing(false);//para de carregar
+        }else{
+            srRecarregar.setRefreshing(false);
             rvMonitoria.setVisibility(View.GONE);
             llVazio.setVisibility(View.GONE);
-            llSemInternet.setVisibility(View.VISIBLE); //mostra mensagem de sem internet
+            llSemInternet.setVisibility(View.VISIBLE);
         }
     }
 
 
     private void preencheLista(){
-        monitoriaAdaptador = new MonitoriaAdaptador(this,lista);//Instancia adapter
+        monitoriaAdaptador = new MonitoriaAdaptador(this,lista);
         monitoriaAdaptador.setRecyclerOnClick(this);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
         linearLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
@@ -177,7 +176,7 @@ public class Monitoria2Activity extends AppCompatActivity implements RecyclerOnC
     }
 
     @Override
-    public boolean onCreateOptionsMenu(Menu menu){//infla o menu dessa tela
+    public boolean onCreateOptionsMenu(Menu menu){
         getMenuInflater().inflate(R.menu.menu_monitoria,menu);
         return true;
     }
@@ -185,7 +184,7 @@ public class Monitoria2Activity extends AppCompatActivity implements RecyclerOnC
     @Override
     public boolean onOptionsItemSelected(MenuItem item){
         int id = item.getItemId();
-        if(id == android.R.id.home){ //verifica se clicou na seta de voltar
+        if(id == android.R.id.home){
             finish();
         }
         return true;
@@ -195,20 +194,20 @@ public class Monitoria2Activity extends AppCompatActivity implements RecyclerOnC
     @Override
     public void onClick(View v, int position) {
         Monitoria monitoria = lista.get(position);
-        int id = v.getId();//pega id do item clicado
+        int id = v.getId();
         Intent intent = new Intent(Monitoria2Activity.this, ViewMonitoria.class);
         switch (id){
-            case R.id.iv_editar://se clicou em editar
+            case R.id.iv_editar:
                 intent.putExtra("tipo","alterar");
                 intent.putExtra("descricao",monitoria.getDescricao());
                 intent.putExtra("feedback",monitoria.getFeedback());
                 intent.putExtra("id_monitoria",monitoria.getId());
                 startActivity(intent);
                 break;
-            case R.id.iv_deletar://se clicou em deletar
+            case R.id.iv_deletar:
                 alertaDeletar(sp.getString("id_usuario","0"), monitoria.getId());
                 break;
-            default://se clicar em qualquer parte do card que não seja nos botões anteriores
+            default:
                 intent.putExtra("tipo","visualizar");
                 intent.putExtra("descricao",monitoria.getDescricao());
                 intent.putExtra("feedback",monitoria.getFeedback());
@@ -216,7 +215,7 @@ public class Monitoria2Activity extends AppCompatActivity implements RecyclerOnC
         }
     }
 
-    private void alertaDeletar(final String idUsuario, final String idMonitoria){//cria o alerta  que pergunta se quer excluir
+    private void alertaDeletar(final String idUsuario, final String idMonitoria){
 
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
 
@@ -224,15 +223,15 @@ public class Monitoria2Activity extends AppCompatActivity implements RecyclerOnC
                 .setCancelable(true)
                 .setPositiveButton(R.string.sim, new DialogInterface.OnClickListener() {
                     @Override
-                    public void onClick(DialogInterface dialog, int which) {//se escolher que deseja excluir
+                    public void onClick(DialogInterface dialog, int which) {
                         dialog.dismiss();
-                        deletar(idUsuario, idMonitoria);//chama método que exclusão
+                        deletar(idUsuario, idMonitoria);
                     }
                 })
                 .setNegativeButton(R.string.nao, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        dialog.dismiss();//se escolher que não deseja excluir
+                        dialog.dismiss();
                     }
                 });
 
@@ -241,7 +240,7 @@ public class Monitoria2Activity extends AppCompatActivity implements RecyclerOnC
     }
 
     private void deletar(final String idUsuario, final String idMonitoria){
-        if(conexao.estaConectado()){//se tiver internet
+        if(conexao.estaConectado()){
             conexao.dialogoCarregamento(this,getString(R.string.processando));
             RequestQueue requestQueue = Volley.newRequestQueue(this);
             StringRequest stringRequest = new StringRequest(Request.Method.POST, getString(R.string.url_base) + getString(R.string.url_deletar_monitoria),
@@ -252,11 +251,11 @@ public class Monitoria2Activity extends AppCompatActivity implements RecyclerOnC
                             Log.i("vai", response);
                             try {
                                 JSONObject jo = new JSONObject(response);
-                                if(jo.getString("status").equals("sucesso")){//se encontrar intens
+                                if(jo.getString("status").equals("sucesso")){
                                     Toast.makeText(Monitoria2Activity.this, jo.getString("mensagem"), Toast.LENGTH_SHORT).show();
                                     listarMonitoria();
-                                   //monitoriaAdaptador.notifyDataSetChanged();//atualiza lista
-                                }else{//se erro
+
+                                }else{
                                     Toast.makeText(Monitoria2Activity.this, jo.getString("mensagem"), Toast.LENGTH_SHORT).show();
                                 }
                             } catch (JSONException e) {
@@ -269,13 +268,13 @@ public class Monitoria2Activity extends AppCompatActivity implements RecyclerOnC
                         @Override
                         public void onErrorResponse(VolleyError error) {
                             conexao.progressDialog.dismiss();
-                            Toast.makeText(Monitoria2Activity.this, error.getMessage(), Toast.LENGTH_SHORT).show();//mostra mensagem de erro
+                            Toast.makeText(Monitoria2Activity.this, error.getMessage(), Toast.LENGTH_SHORT).show();
                         }
                     }){
                 @Override
                 protected Map<String, String> getParams() throws AuthFailureError {
                     HashMap<String,String> parametros =  new HashMap<>();
-                    parametros.put("id_monitoria",idMonitoria);
+                    parametros.put("id_mnitooria",idMonitoria);
                     parametros.put("id_usuario",idUsuario);
 
                     return parametros;
@@ -283,7 +282,7 @@ public class Monitoria2Activity extends AppCompatActivity implements RecyclerOnC
             };
 
             requestQueue.add(stringRequest);
-        }else{ //se não tiver internet
+        }else{
             Toast.makeText(this, R.string.sem_conexao, Toast.LENGTH_SHORT).show();
         }
     }
@@ -291,7 +290,7 @@ public class Monitoria2Activity extends AppCompatActivity implements RecyclerOnC
     @Override
     protected void onStart() {
         super.onStart();
-        listarMonitoria();//lista monitoria sempre que on start é chamado
+        listarMonitoria();
     }
 
     @Override

@@ -255,7 +255,7 @@ public class Oficina2Activity extends AppCompatActivity implements RecyclerOnCli
                                 if(jo.getString("status").equals("sucesso")){
                                     Toast.makeText(Oficina2Activity.this, jo.getString("mensagem"), Toast.LENGTH_SHORT).show();
                                     listarVoluntariado();
-                                   //monitoriaAdaptador.notifyDataSetChanged();//atualiza lista
+
                                 }else{
                                     Toast.makeText(Oficina2Activity.this, jo.getString("mensagem"), Toast.LENGTH_SHORT).show();
                                 }

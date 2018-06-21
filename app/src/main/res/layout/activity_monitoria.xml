@@ -6,7 +6,7 @@ android:orientation="vertical"
 android:layout_width="match_parent"
 android:layout_height="match_parent"
 tools:context=".atividades.MonitoriaActivity">
-<!-- Precisa criar a Toolbar e definir um ID para ela-->
+
 <android.support.v7.widget.Toolbar
     android:theme="@style/AppTheme.AppBarOverlay"
     app:popupTheme="@style/ThemeOverlay.AppCompat.Light"

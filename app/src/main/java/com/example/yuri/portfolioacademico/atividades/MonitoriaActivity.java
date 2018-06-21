@@ -15,18 +15,18 @@ public class MonitoriaActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_monitoria);
 
-        Toolbar toolbar = findViewById(R.id.toolbar); //link com a toolbar no xml
-        toolbar.setTitle(R.string.titulo_monitoria); //coloca o título na toolbar, é no arquivo string que se deve colocar todos os texto de uma aplicação
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        toolbar.setTitle(R.string.titulo_monitoria);
 
-        setSupportActionBar(toolbar);//setando suporte de action bar
+        setSupportActionBar(toolbar);
 
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true); //ativando a seta de voltar na toolbar
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
 
     }
 
     @Override
-    public boolean onCreateOptionsMenu(Menu menu){//infla o menu dessa tela
+    public boolean onCreateOptionsMenu(Menu menu){
         getMenuInflater().inflate(R.menu.menu_monitoria,menu);
         return true;
     }
@@ -34,7 +34,7 @@ public class MonitoriaActivity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item){
         int id = item.getItemId();
-        if(id == android.R.id.home){ //verifica se clicou na seta de voltar
+        if(id == android.R.id.home){
             finish();
         }
         return true;

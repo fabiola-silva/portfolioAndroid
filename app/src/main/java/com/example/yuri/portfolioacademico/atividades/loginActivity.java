@@ -38,7 +38,7 @@ public class loginActivity extends AppCompatActivity {
 
         conexao = new Conexao(this);
 
-        sp = getSharedPreferences("dados_usuario",MODE_PRIVATE);//salva dados locais do usuário
+        sp = getSharedPreferences("dados_usuario",MODE_PRIVATE);
 
         etEmail = findViewById(R.id.et_email);
         etSenha = findViewById(R.id.et_senha);
@@ -62,47 +62,43 @@ public class loginActivity extends AppCompatActivity {
 
     private void entrar(final String email, final String senha){
         if(conexao.estaConectado()){
-            RequestQueue requestQueue = Volley.newRequestQueue(this);//cria lista de requisição
-            conexao.dialogoCarregamento(this,getString(R.string.processando));//chama o dialogo de carregamento passando a mensagem ser mostrada
+            RequestQueue requestQueue = Volley.newRequestQueue(this);
+            conexao.dialogoCarregamento(this,getString(R.string.processando));
 
-            /** primeiro parametro é o tipo de requisição POST ou GET,
-             *  o segundo é a url que deve ser accessada,
-             * note que URL base sempre é a mesma, o que muda é a do lado dela */
+
             StringRequest stringRequest = new StringRequest(Request.Method.POST, getString(R.string.url_base) + getString(R.string.url_login),
                     new Response.Listener<String>() {
                         @Override
                         public void onResponse(String response) {
-                            conexao.progressDialog.dismiss();//encerra dialogo de carregamento
-                            //se sucesso na requisição ele chama essa parte
+                            conexao.progressDialog.dismiss();
                             Log.i("josn_vai",response);
                             try {
                                 JSONObject jo = new JSONObject(response);
-                                if(jo.getString("status").equals("sucesso")){//verifica se retornou dados
-                                    JSONObject dados = jo.getJSONObject("dados");//pega o objeto JSON com os dados do usuário
+                                if(jo.getString("status").equals("sucesso")){
+                                    JSONObject dados = jo.getJSONObject("dados");
 
-                                    SharedPreferences.Editor editor = sp.edit();//prepara para editar o arquivos de dados locais do usuario
+                                    SharedPreferences.Editor editor = sp.edit();
 
-                                    editor.putString("email",dados.getString("email")); //salva dados localmente para usar quando necessário
+                                    editor.putString("email",dados.getString("email"));
                                     editor.putString("nome",dados.getString("nome"));
                                     editor.putString("id_usuario",dados.getString("id"));
-                                    editor.putBoolean("logado",true);//seta que foi feito o login
+                                    editor.putBoolean("logado",true);
 
-                                    editor.apply();//aplica as alterações
-                                    editor.commit();//salva as alterações
+                                    editor.apply();
+                                    editor.commit();
 
-                                    Intent i = new Intent(loginActivity.this,MainActivity.class); //seta a tela que tem que ir
-                                    startActivity(i); //chama a outra tela
+                                    Intent i = new Intent(loginActivity.this,MainActivity.class);
+                                    startActivity(i);
 
-                                    finish(); //fecha a tela atual
-
-                                }else{//se não encontrou usuário
+                                    finish();
+                                }else{
                                     Toast.makeText(loginActivity.this, jo.getString("mensagem"), Toast.LENGTH_SHORT).show();
-                                    //mostra a mensagem de erro do retorno
+
                                 }
                             } catch (JSONException e) {
-                                conexao.progressDialog.dismiss();//encerra dialogo de carregamento
+                                conexao.progressDialog.dismiss();
                                 e.printStackTrace();
-                                //aqui mostra erros referente a JSOM
+
                                 Toast.makeText(loginActivity.this, e.getMessage(), Toast.LENGTH_SHORT).show();
                             }
 
@@ -112,23 +108,23 @@ public class loginActivity extends AppCompatActivity {
                     new Response.ErrorListener() {
                         @Override
                         public void onErrorResponse(VolleyError error) {
-                            //se erro na requisição ele chama essa parte
+
                             Toast.makeText(loginActivity.this, error.getMessage(), Toast.LENGTH_SHORT).show();
-                            //se der erro aqui é mostrado a mensagem de erro
+
                         }
                     }){
                 @Override
-                protected Map<String, String> getParams() throws AuthFailureError {//aqui são setados os posts a serem enviados
+                protected Map<String, String> getParams() throws AuthFailureError {
                     HashMap<String,String> parametros = new HashMap<>();
-                    parametros.put("email",email);/** primeiro parametro é o name do post, o segundo é o valor*/
+                    parametros.put("email",email);
                     parametros.put("senha",senha);
 
-                    return parametros; //retorna os posts
+                    return parametros;
                 }
             };
 
             requestQueue.add(stringRequest);
-            //adiciona requisição
+
         }else{
             Toast.makeText(this, R.string.sem_conexao, Toast.LENGTH_SHORT).show();
         }
