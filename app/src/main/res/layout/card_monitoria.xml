@@ -32,6 +32,12 @@
                 android:layout_width="25dp"
                 android:layout_height="25dp"
                 app:srcCompat="@drawable/ic_editar"/>
+            <ImageView
+                android:layout_marginLeft="6dp"
+                android:id="@+id/iv_deletar"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                app:srcCompat="@drawable/ic_deletar"/>
 
         </LinearLayout>
 
