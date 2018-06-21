@@ -1,8 +1,10 @@
 package com.example.yuri.portfolioacademico.atividades;
 
+import android.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.text.Editable;
 import android.view.Menu;
 import android.view.MenuItem;
 
@@ -24,6 +26,7 @@ public class TrabalhosActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
     }
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu){

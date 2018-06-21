@@ -5,9 +5,13 @@
     <string name="titulo_trabalhos">Trabalhos</string>
     <string name="titulo_projetos">Projetos</string>
     <string name="titulo_atividades_faculdade">Atividades_Faculdade</string>
+    <string name="titulo_oficina">Oficina</string>
+    <string name="titulo_cadastro">Cadastro</string>
+    <string name="nome">Nome</string>
     <string name="email">E-mail</string>
     <string name="senha">Senha</string>
     <string name="entrar">Entrar</string>
+    <string name="cadastro">Cadastra-se</string>
     <string name="preencha_tudo">Preencha todos os campos</string>
     <string name="senha_incorreta">Senha incorreta</string>
     <string name="sem_conexao">Sem conexão</string>
@@ -18,17 +22,39 @@
 
     <!-- URLS -->
     <!-- LOCAL -->
-    <string name="url_base">http://192.168.1.101/portfolio-api/api</string>
+    <string name="url_base">http://192.168.1.100/portfolio-api/api</string>
     <!-- ONLINE -->
-    <!--<string name="url_base">http://lab312-icetufam.com.br/testes/portfolio-api/api</string>-->
+
     <string name="url_login">/usuario/loginapp.php</string>
+    <string name="url_cadastrar_usuario">/usuario.inserir.php</string>
+    <string name="url_alterar_usuario">/usuario.alterar.php</string>
+
     <string name="url_listar_monitoria">/monitoria/listar.php</string>
     <string name="url_cadastrar_monitoria">/monitoria/inserir.php</string>
     <string name="url_alterar_monitoria">/monitoria/alterar.php</string>
     <string name="url_deletar_monitoria">/monitoria/deletar.php</string>
     <string name="utl_enviar_projeto">/projeto/salvardoc.php</string>
 
+    <string name="url_listar_voluntariado">/voluntariado/listar.php</string>
+    <string name="url_cadastrar_voluntariado">/voluntariado/inserir.php</string>
+    <string name="url_alterar_voluntariado">/voluntariado/alterar.php</string>
+    <string name="url_deletar_voluntariado">/voluntariado/deletar.php</string>
+
+    <string name="url_listar_trabalhos">/trabalhos/listar.php</string>
+    <string name="url_cadastrar_trabalhos">/trabalhos/inserir.php</string>
+    <string name="url_alterar_trabalhos">/trabalhos/alterar.php</string>
+    <string name="url_deletar_trabalhos">/trabalhos/deletar.php</string>
+
+    <string name="url_listar_oficina">/oficina/listar.php</string>
+    <string name="url_cadastrar_oficina">/oficina/inserir.php</string>
+    <string name="url_alterar_oficina">/oficina/alterar.php</string>
+    <string name="url_deletar_oficina">/oficina/deletar.php</string>
+
     <string name="title_activity_monitoria2">Monitoria2Activity</string>
+    <string name="title_activity_voluntariado2">Voluntariado2Activity</string>
+    <string name="title_activity_oficina2">Oficina2Activity</string>
+    <string name="title_activity_cadastro2">Cadastro2Activity</string>
+    <string name="nome_oficina">Nome da Oficina</string>
     <string name="descricao">Descrição</string>
     <string name="feedback">Feedback</string>
     <string name="cadastrar">Cadastrar</string>

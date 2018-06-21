@@ -32,7 +32,12 @@
                 android:layout_width="25dp"
                 android:layout_height="25dp"
                 app:srcCompat="@drawable/ic_editar"/>
-
+            <ImageView
+                android:layout_marginLeft="6dp"
+                android:id="@+id/iv_deletar"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                app:srcCompat="@drawable/ic_deletar"/>
         </LinearLayout>
 
 
@@ -41,11 +46,9 @@
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"
-            android:text="FeedBack"
+            android:text="Feedback"
             android:ellipsize="end"
             android:maxLines="3"/>
-
-
         <TextView
             android:textSize="12sp"
             android:id="@+id/tv_data_cadastro"

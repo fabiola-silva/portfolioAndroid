@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".atividades.ViewMonitoria">
+    tools:context=".atividades.ViewVoluntariado">
     <android.support.v7.widget.Toolbar
         android:id="@+id/toolbar"
         android:background="@color/colorPrimary"
@@ -57,7 +57,7 @@
         android:layout_height="match_parent">
         <TextView
             android:id="@+id/tv_descricao"
-            android:text="Descrição da monitoria"
+            android:text="Descrição"
             android:textColor="@color/black"
             android:textSize="18sp"
             android:layout_width="wrap_content"
@@ -65,7 +65,7 @@
         <TextView
             android:layout_marginTop="20dp"
             android:id="@+id/tv_feedback"
-            android:text="Feedback do aluno"
+            android:text="Feedback"
             android:textColor="@color/black"
             android:textSize="13sp"
             android:layout_width="wrap_content"

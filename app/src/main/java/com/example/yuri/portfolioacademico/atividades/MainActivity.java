@@ -62,7 +62,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     private void carregaVoluntariado(){
-        Intent i = new Intent(MainActivity.this, VoluntariadoActivity.class);
+        Intent i = new Intent(MainActivity.this, Voluntariado2Activity.class);
 
         startActivity(i);
     }
